@@ -27,26 +27,52 @@
 			<version>3.0.5.Final</version>
 		</dependency>
 	</dependencies>
-	
+
 	<build>
 		<plugins>
-		<plugin>
-		        <groupId>com.google.code.maven-license-plugin</groupId>
-		        <artifactId>maven-license-plugin</artifactId>
-		        <version>1.4.0</version>
-		        <configuration>
-		        	<header>license.txt</header>
-		        	<includes>
-	                    <include>src/**/*.java</include>
-	                    <include>src/**/*.xml</include>
-	                </includes>
-	                <mappings>
-	                	<java>JAVADOC_STYLE</java>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-source-plugin</artifactId>
+				<version>2.2.1</version>
+				<executions>
+					<execution>
+						<id>attach-sources</id>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<version>2.9.1</version>
+				<executions>
+					<execution>
+						<id>attach-javadocs</id>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>com.google.code.maven-license-plugin</groupId>
+				<artifactId>maven-license-plugin</artifactId>
+				<version>1.4.0</version>
+				<configuration>
+					<header>license.txt</header>
+					<includes>
+						<include>src/**/*.java</include>
+						<include>src/**/*.xml</include>
+					</includes>
+					<mappings>
+						<java>JAVADOC_STYLE</java>
 						<xml>XML_STYLE</xml>
-	                </mappings>
-		        	
-		        </configuration>
-		      </plugin>
+					</mappings>
+
+				</configuration>
+			</plugin>
 		</plugins>
 	</build>
 </project>
