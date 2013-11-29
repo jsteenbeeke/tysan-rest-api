@@ -1,9 +1,11 @@
 package com.tysanclan.rest.api.services;
 
+import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
+import javax.ws.rs.core.MediaType;
 
 import com.tysanclan.rest.api.data.Token;
 
@@ -19,7 +21,8 @@ public interface TokenService {
 	 * @return A token object
 	 */
 	@GET
-	@Produces("text/json")
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.APPLICATION_JSON)
 	Token getToken(@QueryParam("u") String username,
 			@QueryParam("p") String password);
 }
