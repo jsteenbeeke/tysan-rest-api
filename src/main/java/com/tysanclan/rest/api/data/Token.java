@@ -18,11 +18,11 @@
 package com.tysanclan.rest.api.data;
 
 public class Token {
-	private final String username;
+	private String username;
 
-	private final String tokenString;
+	private String tokenString;
 
-	private final long validUntil;
+	private long validUntil;
 
 	public Token(String username, String tokenString, long validUntil) {
 		super();
@@ -35,11 +35,27 @@ public class Token {
 		return username;
 	}
 
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
 	public String getTokenString() {
 		return tokenString;
 	}
 
-	public boolean isValid() {
-		return System.currentTimeMillis() < validUntil;
+	public void setTokenString(String tokenString) {
+		this.tokenString = tokenString;
+	}
+
+	public long getValidUntil() {
+		return validUntil;
+	}
+
+	public void setValidUntil(long validUntil) {
+		this.validUntil = validUntil;
+	}
+
+	public boolean hasExpired() {
+		return System.currentTimeMillis() > validUntil;
 	}
 }
