@@ -20,9 +20,9 @@ package com.tysanclan.rest.api.data;
 public class TysanUser {
 	private final String username;
 
-	private final String rank;
+	private final Rank rank;
 
-	public TysanUser(String username, String rank) {
+	public TysanUser(String username, Rank rank) {
 		super();
 		this.username = username;
 		this.rank = rank;
@@ -32,7 +32,7 @@ public class TysanUser {
 		return username;
 	}
 
-	public String getRank() {
+	public Rank getRank() {
 		return rank;
 	}
 
