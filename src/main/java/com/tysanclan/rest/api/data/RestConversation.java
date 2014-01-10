@@ -17,23 +17,47 @@
  */
 package com.tysanclan.rest.api.data;
 
-public class TysanUser {
-	private final String username;
+import java.util.Date;
+import java.util.List;
+import java.util.Set;
 
-	private final Rank rank;
+public class RestConversation {
+	private final long id;
 
-	public TysanUser(String username, Rank rank) {
-		super();
-		this.username = username;
-		this.rank = rank;
+	private final String title;
+
+	private final Date lastEntry;
+
+	private final Set<RestUser> participants;
+
+	private final List<RestMessage> messages;
+
+	public RestConversation(long id, String title, Date lastEntry,
+			Set<RestUser> participants, List<RestMessage> messages) {
+		this.id = id;
+		this.title = title;
+		this.lastEntry = lastEntry;
+		this.participants = participants;
+		this.messages = messages;
 	}
 
-	public String getUsername() {
-		return username;
+	public long getId() {
+		return id;
 	}
 
-	public Rank getRank() {
-		return rank;
+	public String getTitle() {
+		return title;
 	}
 
+	public Date getLastEntry() {
+		return lastEntry;
+	}
+
+	public Set<RestUser> getParticipants() {
+		return participants;
+	}
+
+	public List<RestMessage> getMessages() {
+		return messages;
+	}
 }

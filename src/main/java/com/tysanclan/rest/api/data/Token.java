@@ -18,25 +18,25 @@
 package com.tysanclan.rest.api.data;
 
 public class Token {
-	private String username;
+	private RestUser user;
 
 	private String tokenString;
 
 	private long validUntil;
 
-	public Token(String username, String tokenString, long validUntil) {
+	public Token(RestUser user, String tokenString, long validUntil) {
 		super();
-		this.username = username;
+		this.user = user;
 		this.tokenString = tokenString;
 		this.validUntil = validUntil;
 	}
 
-	public String getUsername() {
-		return username;
+	public RestUser getUser() {
+		return user;
 	}
 
-	public void setUsername(String username) {
-		this.username = username;
+	public void setUser(RestUser user) {
+		this.user = user;
 	}
 
 	public String getTokenString() {

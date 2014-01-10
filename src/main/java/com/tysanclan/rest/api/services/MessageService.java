@@ -19,6 +19,7 @@ package com.tysanclan.rest.api.services;
 
 import java.util.List;
 
+import javax.ws.rs.DELETE;
 import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
 import javax.ws.rs.PUT;
@@ -27,25 +28,31 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 
-import com.tysanclan.rest.api.data.Conversation;
-import com.tysanclan.rest.api.data.Message;
+import com.tysanclan.rest.api.data.RestConversation;
+import com.tysanclan.rest.api.data.RestMessage;
+import com.tysanclan.rest.api.data.RestUser;
 
 @Path("/messages")
 public interface MessageService {
 	@GET
 	@Produces("text/json")
-	List<Conversation> getConversations(@QueryParam("t") String tokenString);
+	List<RestConversation> getConversations(@QueryParam("t") String tokenString);
 
 	@PUT
 	@Produces("text/json")
-	Conversation createConversation(@QueryParam("t") String tokenString,
-			@FormParam("recipients") List<String> recipients,
+	RestConversation createConversation(@QueryParam("t") String tokenString,
+			@FormParam("recipients") List<RestUser> recipients,
 			@FormParam("title") String title, @FormParam("body") String body);
 
 	@PUT
 	@Path("/{id}")
 	@Produces("text/json")
-	Message respondToConversation(@QueryParam("t") String tokenString,
-			@PathParam("id") long conversationId, String text);
+	RestMessage respondToConversation(@QueryParam("t") String tokenString,
+			@PathParam("id") long conversationId, @FormParam("body") String text);
+
+	@DELETE
+	@Path("/{id}")
+	void leaveConversation(@QueryParam("t") String tokenString,
+			@PathParam("id") long conversationId);
 
 }

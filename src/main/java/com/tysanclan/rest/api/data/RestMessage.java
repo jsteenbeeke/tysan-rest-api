@@ -19,14 +19,14 @@ package com.tysanclan.rest.api.data;
 
 import java.util.Date;
 
-public class Message {
+public class RestMessage {
 	private final Date sentTime;
 
 	private final String message;
 
-	private final TysanUser sender;
+	private final RestUser sender;
 
-	public Message(Date sentTime, String message, TysanUser sender) {
+	public RestMessage(Date sentTime, String message, RestUser sender) {
 		super();
 		this.sentTime = sentTime;
 		this.message = message;
@@ -41,7 +41,7 @@ public class Message {
 		return message;
 	}
 
-	public TysanUser getSender() {
+	public RestUser getSender() {
 		return sender;
 	}
 
