@@ -29,10 +29,23 @@ import com.tysanclan.rest.api.data.Token;
 @Path("/tokens")
 public interface TokenService {
 	/**
+	 * Generates a challenge string to verify the client requesting access
+	 * @param clientId The issued ID of the client
+	 * @return A challenge string
+	 */
+	@GET()
+	@Path("/challenges")
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.APPLICATION_JSON)
+	String issueChallenge(@QueryParam("c") String clientId);
+
+	/**
 	 * Create a token for the given username and password
 	 * 
 	 * ONLY USE THIS METHOD OVER SSL!
 	 * 
+	 * @param challenge The issued challenge
+	 * @param response The response to the issued challenge
 	 * @param username The username for which to get a token
 	 * @param password The password for which to get a token
 	 * @return A token object
@@ -40,6 +53,7 @@ public interface TokenService {
 	@GET
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
-	Token getToken(@QueryParam("u") String username,
+	Token getToken(@QueryParam("c") String challenge,
+			@QueryParam("r") String response, @QueryParam("u") String username,
 			@QueryParam("p") String password);
 }
