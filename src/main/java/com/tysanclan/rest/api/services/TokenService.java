@@ -30,7 +30,9 @@ import com.tysanclan.rest.api.data.Token;
 public interface TokenService {
 	/**
 	 * Generates a challenge string to verify the client requesting access
-	 * @param clientId The issued ID of the client
+	 * 
+	 * @param clientId
+	 *            The issued ID of the client
 	 * @return A challenge string
 	 */
 	@GET()
@@ -44,16 +46,25 @@ public interface TokenService {
 	 * 
 	 * ONLY USE THIS METHOD OVER SSL!
 	 * 
-	 * @param challenge The issued challenge
-	 * @param response The response to the issued challenge
-	 * @param username The username for which to get a token
-	 * @param password The password for which to get a token
+	 * @param challenge
+	 *            The issued challenge
+	 * @param response
+	 *            The response to the issued challenge
+	 * @param username
+	 *            The username for which to get a token
+	 * @param password
+	 *            The password for which to get a token
 	 * @return A token object
 	 */
 	@GET
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
-	Token getToken(@QueryParam("c") String challenge,
-			@QueryParam("r") String response, @QueryParam("u") String username,
-			@QueryParam("p") String password);
+	Token getToken(@QueryParam("c") String challenge, @QueryParam("r") String response,
+			@QueryParam("u") String username, @QueryParam("p") String password);
+
+	@GET()
+	@Path("/stat")
+	@Consumes("application/json")
+	@Produces("text/plain")
+	public String echo();
 }

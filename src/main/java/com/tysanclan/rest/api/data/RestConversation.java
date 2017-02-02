@@ -22,18 +22,21 @@ import java.util.List;
 import java.util.Set;
 
 public class RestConversation {
-	private final long id;
+	private long id;
 
-	private final String title;
+	private String title;
 
-	private final Date lastEntry;
+	private Date lastEntry;
 
-	private final Set<RestUser> participants;
+	private Set<RestUser> participants;
 
-	private final List<RestMessage> messages;
+	private List<RestMessage> messages;
 
-	public RestConversation(long id, String title, Date lastEntry,
-			Set<RestUser> participants, List<RestMessage> messages) {
+	public RestConversation() {
+	}
+
+	public RestConversation(long id, String title, Date lastEntry, Set<RestUser> participants,
+			List<RestMessage> messages) {
 		this.id = id;
 		this.title = title;
 		this.lastEntry = lastEntry;
@@ -60,4 +63,25 @@ public class RestConversation {
 	public List<RestMessage> getMessages() {
 		return messages;
 	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	public void setLastEntry(Date lastEntry) {
+		this.lastEntry = lastEntry;
+	}
+
+	public void setParticipants(Set<RestUser> participants) {
+		this.participants = participants;
+	}
+
+	public void setMessages(List<RestMessage> messages) {
+		this.messages = messages;
+	}
+
 }

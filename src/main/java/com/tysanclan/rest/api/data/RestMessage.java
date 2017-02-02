@@ -20,11 +20,15 @@ package com.tysanclan.rest.api.data;
 import java.util.Date;
 
 public class RestMessage {
-	private final Date sentTime;
+	private Date sentTime;
 
-	private final String message;
+	private String message;
 
-	private final RestUser sender;
+	private RestUser sender;
+
+	public RestMessage() {
+
+	}
 
 	public RestMessage(Date sentTime, String message, RestUser sender) {
 		super();
@@ -43,6 +47,18 @@ public class RestMessage {
 
 	public RestUser getSender() {
 		return sender;
+	}
+
+	public void setSentTime(Date sentTime) {
+		this.sentTime = sentTime;
+	}
+
+	public void setMessage(String message) {
+		this.message = message;
+	}
+
+	public void setSender(RestUser sender) {
+		this.sender = sender;
 	}
 
 }

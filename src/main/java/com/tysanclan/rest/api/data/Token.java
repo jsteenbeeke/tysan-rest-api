@@ -31,6 +31,10 @@ public class Token {
 		this.validUntil = validUntil;
 	}
 
+	public Token() {
+
+	}
+
 	public RestUser getUser() {
 		return user;
 	}

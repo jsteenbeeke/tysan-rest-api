@@ -18,9 +18,12 @@
 package com.tysanclan.rest.api.data;
 
 public class RestUser {
-	private final String username;
+	private String username;
 
-	private final Rank rank;
+	private Rank rank;
+
+	public RestUser() {
+	}
 
 	public RestUser(String username, Rank rank) {
 		super();
@@ -32,8 +35,16 @@ public class RestUser {
 		return username;
 	}
 
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
 	public Rank getRank() {
 		return rank;
+	}
+
+	public void setRank(Rank rank) {
+		this.rank = rank;
 	}
 
 }
